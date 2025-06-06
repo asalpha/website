@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linoorah - Premium Software Consulting Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #06b6d4;
+            transform: translateY(-1px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #06b6d4, #3b82f6);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            color: white;
+            padding: 140px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.3) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: rgba(255, 255, 255, 0.7);
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #475569;
+        }
+
+        .about-features {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+
+        .feature-content p {
+            color: #64748b;
+        }
+
+        /* What Sets Us Apart */
+        .differentiators {
+            background: white;
+        }
+
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .diff-card {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(6, 182, 212, 0.1);
+        }
+
+        .diff-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            border-color: rgba(6, 182, 212, 0.3);
+        }
+
+        .diff-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            color: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 2rem;
+        }
+
+        /* How We Operate */
+        .operations {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .step-description {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Projects Section */
+        .projects {
+            background: white;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(6, 182, 212, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+            border-color: rgba(6, 182, 212, 0.3);
+        }
+
+        .project-image {
+            height: 220px;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .project-content {
+            padding: 2.5rem;
+        }
+
+        .project-client {
+            color: #06b6d4;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .project-description {
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+            color: #475569;
+            padding: 0.4rem 1rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Team Section */
+        .team {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .team-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background: transparent;
+            border: 2px solid #e2e8f0;
+            color: #64748b;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            border-color: #06b6d4;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .member-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+        }
+
+        .member-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+
+        .member-role {
+            font-size: 1rem;
+            color: #06b6d4;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .member-bio {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Blog Section */
+        .blog {
+            background: white;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .blog-card {
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(6, 182, 212, 0.1);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            border-color: rgba(6, 182, 212, 0.3);
+        }
+
+        .blog-image {
+            height: 200px;
+            background: linear-gradient(135deg, #64748b, #475569);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-date {
+            color: #06b6d4;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .blog-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .blog-excerpt {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more {
+            color: #06b6d4;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #0891b2;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-family: inherit;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 23, 42, 0.98);
+                flex-direction: column;
+                padding: 2rem 0;
+                backdrop-filter: blur(20px);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Linoorah</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">What Sets Us Apart</a></li>
+                <li><a href="#operations">How We Operate</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Linoorah</h1>
+                <p class="hero-subtitle">Premium Software Consulting Solutions</p>
+                <p class="hero-description">
+                    Transforming businesses through innovative technology solutions. 
+                    We partner with leading financial institutions and enterprises to deliver 
+                    cutting-edge software that drives growth and efficiency.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn-primary">View Our Work</a>
+                    <a href="#contact" class="btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Linoorah</h2>
+            <p class="section-subtitle">
+                A trusted technology partner for forward-thinking organizations
+            </p>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        At Linoorah, we specialize in delivering enterprise-grade software solutions 
+                        that empower businesses to thrive in the digital age. With deep expertise 
+                        across financial services, healthcare, and technology sectors, we've built 
+                        a reputation for excellence through our work with industry leaders.
+                    </p>
+                    <p>
+                        Our team combines technical mastery with business acumen to create solutions 
+                        that not only meet today's challenges but anticipate tomorrow's opportunities. 
+                        We believe in building lasting partnerships that drive sustainable growth 
+                        and innovation.
+                    </p>
+                </div>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">🚀</div>
+                        <div class="feature-content">
+                            <h3>Innovation First</h3>
+                            <p>Leveraging cutting-edge technologies to solve complex business challenges</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <div class="feature-content">
+                            <h3>Results Driven</h3>
+                            <p>Focused on measurable outcomes that impact your bottom line</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🤝</div>
+                        <div class="feature-content">
+                            <h3>True Partnership</h3>
+                            <p>Working alongside your team as trusted advisors and collaborators</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Sets Us Apart -->
+    <section id="services" class="differentiators">
+        <div class="container">
+            <h2 class="section-title">What Sets Us Apart</h2>
+            <p class="section-subtitle">
+                Our unique approach combines deep technical expertise with strategic business insight
+            </p>
+            <div class="diff-grid">
+                <div class="diff-card fade-in">
+                    <div class="diff-icon">⚡</div>
+                    <h3>Rapid Innovation</h3>
+                    <p>We accelerate time-to-market with agile methodologies and proven frameworks, delivering solutions 3x faster than traditional approaches.</p>
+                </div>
+                <div class="diff-card fade-in">
+                    <div class="diff-icon">🔒</div>
+                    <h3>Security First</h3>
+                    <p>Enterprise-grade security is built into every solution from day one, ensuring compliance with the strictest industry standards.</p>
+                </div>
+                <div class="diff-card fade-in">
+                    <div class="diff-icon">📊</div>
+                    <h3>Data-Driven Insights</h3>
+                    <p>Transform your data into actionable intelligence with our advanced analytics and AI-powered solutions.</p>
+                </div>
+                <div class="diff-card fade-in">
+                    <div class="diff-icon">🌐</div>
+                    <h3>Scalable Architecture</h3>
+                    <p>Future-proof solutions built on cloud-native architectures that scale seamlessly with your business growth.</p>
+                </div>
+                <div class="diff-card fade-in">
+                    <div class="diff-icon">🎨</div>
+                    <h3>User-Centric Design</h3>
+                    <p>Beautiful, intuitive interfaces that enhance user experience and drive adoption across your organization.</p>
+                </div>
+                <div class="diff-card fade-in">
+                    <div class="diff-icon">🔧</div>
+                    <h3>24/7 Support</h3>
+                    <p>Comprehensive support and maintenance services ensure your systems run smoothly around the clock.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Operate -->
+    <section id="operations" class="operations">
+        <div class="container">
+            <h2 class="section-title">How We Operate</h2>
+            <p class="section-subtitle">
+                Our proven methodology ensures successful project delivery every time
+            </p>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Discovery & Strategy</h3>
+                    <p class="step-description">
+                        We begin with deep stakeholder interviews and business analysis to understand your unique challenges and objectives.
+                    </p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Design & Architecture</h3>
+                    <p class="step-description">
+                        Our architects design scalable, secure solutions while our UX team creates intuitive user experiences.
+                    </p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Agile Development</h3>
+                    <p class="step-description">
+                        Using proven agile methodologies, we deliver working software in short iterations with continuous stakeholder feedback.
+                    </p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Testing & Quality Assurance</h3>
+                    <p class="step-description">
+                        Comprehensive testing ensures reliability, security, and performance meet the highest enterprise standards.
+                    </p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="step-number">5</div>
+                    <h3 class="step-title">Deployment & Support</h3>
+                    <p class="step-description">
+                        Seamless deployment with comprehensive training and ongoing support to ensure long-term success.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Our Projects</h2>
+            <p class="section-subtitle">
+                Delivering transformative solutions for industry leaders
+            </p>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <div class="project-image">🏦</div>
+                    <div class="project-content">
+                        <div class="project-client">RBC Royal Bank</div>
+                        <h3 class="project-title">Digital Banking Platform Modernization</h3>
+                        <p class="project-description">
+                            Complete overhaul of legacy banking systems with modern microservices architecture, 
+                            enabling real-time transactions and improved customer experience for over 2 million users.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Redis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">💳</div>
+                    <div class="project-content">
+                        <div class="project-client">BMO Bank of Montreal</div>
+                        <h3 class="project-title">AI-Powered Risk Assessment System</h3>
+                        <p class="project-description">
+                            Machine learning platform for real-time credit risk assessment and fraud detection, 
+                            reducing processing time by 75% while improving accuracy and compliance reporting.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Azure</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Kafka</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">🛡️</div>
+                    <div class="project-content">
+                        <div class="project-client">Securian Financial Canada</div>
+                        <h3 class="project-title">Insurance Claims Processing Automation</h3>
+                        <p class="project-description">
+                            End-to-end digital transformation of insurance claims workflow with automated document processing, 
+                            AI-driven claim assessment, and integrated customer portal for seamless claim tracking.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">Java Spring</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Oracle</span>
+                            <span class="tech-tag">RPA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">🏘️</div>
+                    <div class="project-content">
+                        <div class="project-client">Manorlead</div>
+                        <h3 class="project-title">Property Management Suite</h3>
+                        <p class="project-description">
+                            Comprehensive property management platform with tenant portals, maintenance tracking, 
+                            financial reporting, and mobile apps for property managers and residents.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">PHP Laravel</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Stripe</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">⚡</div>
+                    <div class="project-content">
+                        <div class="project-client">Enercare</div>
+                        <h3 class="project-title">Smart Energy Management Platform</h3>
+                        <p class="project-description">
+                            IoT-enabled energy monitoring and optimization system with predictive analytics, 
+                            automated billing, and customer self-service portal for residential and commercial clients.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">.NET Core</span>
+                            <span class="tech-tag">Azure IoT</span>
+                            <span class="tech-tag">InfluxDB</span>
+                            <span class="tech-tag">Power BI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">🔬</div>
+                    <div class="project-content">
+                        <div class="project-client">Prollenium</div>
+                        <h3 class="project-title">Advanced Analytics Dashboard</h3>
+                        <p class="project-description">
+                            Real-time business intelligence platform with customizable dashboards, automated reporting, 
+                            and machine learning insights for data-driven decision making across multiple business units.
+                        </p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">D3.js</span>
+                            <span class="tech-tag">Python Flask</span>
+                            <span class="tech-tag">Elasticsearch</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">Tableau</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <p class="section-subtitle">
+                Exceptional talent driving innovative solutions
+            </p>
+            
+            <div class="team-tabs">
+                <button class="tab-button active" onclick="showTab('leadership')">Leadership</button>
+                <button class="tab-button" onclick="showTab('engineering')">Engineering</button>
+                <button class="tab-button" onclick="showTab('design')">Design & UX</button>
+                <button class="tab-button" onclick="showTab('consulting')">Consulting</button>
+            </div>
+
+            <div id="leadership" class="tab-content active">
+                <div class="team-grid">
+                    <div class="team-member fade-in">
+                        <div class="member-avatar">SJ</div>
+                        <h3 class="member-name">Sarah Johnson</h3>
+                        <p class="member-role">CEO & Founder</p>
+                        <p class="member-bio">
+                            Former VP of Technology at TD Bank with 15+ years leading digital transformation 
+                            initiatives. Expert in fintech innovation and enterprise architecture.
+                        </p>
+                    </div>
+                    <div class="team-member fade-in">
+                        <div class="member-avatar">MR</div>
+                        <h3 class="member-name">Michael Rodriguez</h3>
+                        <p class="member-role">CTO</p>
+                        <p class="member-bio">
+                            Former Principal Engineer at Shopify with deep expertise in scalable systems 
+                            and cloud architecture. Passionate about building resilient, high-performance solutions.
+                        </p>
+                    </div>
+                    <div class="team-member fade-in">
+                        <div class="member-avatar">EL</div>
+                        <h3 class="member-name">Emily Liu</h3>
+                        <p class="member-role">VP of Operations</p>
+                        <p class="member-bio">
+                            MBA from Rotman with expertise in project management and client relations. 
+                            Ensures seamless delivery and exceptional client satisfaction across all projects.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="engineering" class="tab-content">
+                <div class="team-grid">
+                    <div class="team-member fade-in">
+                        <div class="member-avatar">DK</div>
+                        <h3 class="member-name">David Kim</h3>
+                        <p class="member-role">Senior Full-Stack Developer</p>
+                        <p class="member-bio">
+                            Full-stack expert with 10+ years building enterprise applications. 
+                            Specializes in React, Node.js, and cloud-native architectures.
+                        </p>
+                    </div>
+                    <div class="team-member fade-in">
+                        <div class="member-avatar">AP</div>
+                        <h3 class="member-name">Aisha Patel</h3>
+                        <p class="member-role">DevOps Engineer</p>
+                        <p class="member-bio">
+                            Infrastructure automation specialist with expertise in Kubernetes, AWS, 
+                            and CI/CD pipelines. Ensures reliable, scalable deployments.
+                        </p>
+                    </div>
+                    <div class="team-member fade-in">
+                        <div class="member-avatar">JW</div>
+                        <h3 class="member-name">James Wilson</h3>
+                        <p class="member-role">Data Engineer</p>
+                        <p class="member-bio">
+                            Machine learning and data pipeline expert. Transforms complex data 
+                            into actionable insights using advanced analytics and AI.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="design" class="tab-content">
+                <div class="team-grid">
+                    <div class="team-member fade-in">
+                        <div class="member-avatar">ZC</div>
+                        <h3 class="member-name">Zoe Chen</h3>
+                        <p class="member-role">Lead UX Designer</p>
+                        <p class="member-bio">
+                            Award-winning designer with expertise in enterprise UX and design systems. 
+                            Creates intuitive interfaces that delight users and drive adoption.
+                        </p>
+                    </div>
+                    <div class="team-member fade-in">
+                        <div class="member-avatar">RT</div>
+                        <h3 class="member-name">Robert Thompson</h3>
+                        <p class="member-role">UI Developer</p>
+                        <p class="member-bio">
+                            Front-end specialist focused on responsive design and performance optimization. 
+                            Expert in modern CSS frameworks and animation libraries.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="consulting" class="tab-content">
+                <div class="team-grid">
+                    <div class="team-member fade-in">
+                        <div class="member-avatar">LP</div>
+                        <h3 class="member-name">Lisa Park</h3>
+                        <p class="member-role">Senior Business Analyst</p>
+                        <p class="member-bio">
+                            Former McKinsey consultant with deep expertise in digital transformation 
+                            and process optimization across financial services and healthcare.
+                        </p>
+                    </div>
+                    <div class="team-member fade-in">
+                        <div class="member-avatar">AG</div>
+                        <h3 class="member-name">Alex Garcia</h3>
+                        <p class="member-role">Solutions Architect</p>
+                        <p class="member-bio">
+                            Enterprise architect with 12+ years designing complex systems for Fortune 500 companies. 
+                            Expert in microservices and event-driven architectures.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <h2 class="section-title">Latest Insights</h2>
+            <p class="section-subtitle">
+                Stay ahead with our thoughts on technology trends and industry developments
+            </p>
+            <div class="blog-grid">
+                <article class="blog-card fade-in">
+                    <div class="blog-image">📊</div>
+                    <div class="blog-content">
+                        <div class="blog-date">March 15, 2025</div>
+                        <h3 class="blog-title">The Future of Banking: AI-Driven Personalization</h3>
+                        <p class="blog-excerpt">
+                            Exploring how artificial intelligence is revolutionizing customer experience 
+                            in financial services through hyper-personalized banking solutions.
+                        </p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-card fade-in">
+                    <div class="blog-image">🔒</div>
+                    <div class="blog-content">
+                        <div class="blog-date">March 8, 2025</div>
+                        <h3 class="blog-title">Zero Trust Architecture in Enterprise Applications</h3>
+                        <p class="blog-excerpt">
+                            A comprehensive guide to implementing zero trust security principles 
+                            in modern enterprise software architecture and development practices.
+                        </p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-card fade-in">
+                    <div class="blog-image">☁️</div>
+                    <div class="blog-content">
+                        <div class="blog-date">February 28, 2025</div>
+                        <h3 class="blog-title">Cloud Migration Strategies for Financial Institutions</h3>
+                        <p class="blog-excerpt">
+                            Best practices and lessons learned from successfully migrating legacy 
+                            financial systems to cloud-native architectures while maintaining compliance.
+                        </p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-card fade-in">
+                    <div class="blog-image">🚀</div>
+                    <div class="blog-content">
+                        <div class="blog-date">February 20, 2025</div>
+                        <h3 class="blog-title">Microservices vs Monoliths: Making the Right Choice</h3>
+                        <p class="blog-excerpt">
+                            An in-depth analysis of when to choose microservices architecture 
+                            versus monolithic approaches for enterprise software development.
+                        </p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-card fade-in">
+                    <div class="blog-image">🎯</div>
+                    <div class="blog-content">
+                        <div class="blog-date">February 12, 2025</div>
+                        <h3 class="blog-title">Digital Transformation ROI: Measuring Success</h3>
+                        <p class="blog-excerpt">
+                            Key metrics and KPIs for evaluating the success of digital transformation 
+                            initiatives and ensuring long-term business value creation.
+                        </p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+
+                <article class="blog-card fade-in">
+                    <div class="blog-image">🔄</div>
+                    <div class="blog-content">
+                        <div class="blog-date">February 5, 2025</div>
+                        <h3 class="blog-title">API-First Development: Building for the Future</h3>
+                        <p class="blog-excerpt">
+                            How API-first development approaches are enabling greater flexibility, 
+                            faster integration, and better scalability in modern software projects.
+                        </p>
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Build Something Amazing</h2>
+            <p class="section-subtitle">
+                Ready to transform your business? Let's start the conversation.
+            </p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            hello@linoorah.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <strong>Phone</strong><br>
+                            +1 (416) 555-0123
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Office</strong><br>
+                            Toronto, ON, Canada
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div>
+                            <strong>Business Hours</strong><br>
+                            Mon - Fri: 9:00 AM - 6:00 PM EST
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company" placeholder="Your company name">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us about your project requirements and goals" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Linoorah. All rights reserved. | Transforming businesses through innovative technology solutions.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Team tabs functionality
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Contact form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const company = formData.get('company');
+            const message = formData.get('message');
+            
+            // Simple validation
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('.btn-primary');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for your message! We\'ll get back to you within 24 hours.');
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+
+        // Add loading animation to page
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
